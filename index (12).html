@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Arquitectura | Mobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --gray-light: #f5f5f7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVEGACIÓN MÓVIL --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 10px 20px;
+            display: flex; flex-direction: column; align-items: center;
+            z-index: 1000; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo img { 
+            height: 60px; /* Tamaño optimizado para móvil */
+            width: auto; 
+            margin-bottom: 5px;
+        }
+        .nav-links a { 
+            text-decoration: none; color: var(--text); 
+            font-size: 0.6rem; letter-spacing: 2px; font-weight: 600; text-transform: uppercase;
+            margin: 0 10px;
+        }
+
+        /* --- SECCIONES DE PROYECTO --- */
+        section.project {
+            display: flex;
+            flex-direction: column; /* Video arriba, texto abajo */
+            min-height: 100vh;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* CONTENEDOR DE MEDIA (VIDEO/IMAGE) */
+        .project-media { 
+            width: 100%; 
+            height: 55vh; /* Ocupa un poco más de la mitad de la pantalla */
+            position: relative; 
+            background: #000; 
+            overflow: hidden; 
+        }
+
+        .project-media video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            /* RECORTE DE BORDES: Zoom del 20% */
+            transform: scale(1.2);
+            transform-origin: center center;
+        }
+
+        /* CONTENIDO DE TEXTO */
+        .project-content {
+            width: 100%;
+            padding: 40px 10% 60px;
+            background: #fff;
+        }
+
+        .project-number { font-size: 0.65rem; color: #bbb; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        .project-title { font-size: 2.2rem; font-weight: 200; margin-bottom: 15px; letter-spacing: -1px; }
+        .project-desc { font-size: 0.9rem; color: #555; text-align: justify; font-weight: 300; margin-bottom: 30px; }
+
+        /* FICHA TÉCNICA */
+        .materials-box { border-top: 1px solid #eee; padding-top: 20px; }
+        .materials-box h4 { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 15px; }
+        .material-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .material-item { font-size: 0.75rem; color: #666; display: flex; align-items: center; }
+        .material-item::before { content: ""; width: 4px; height: 1px; background: #999; margin-right: 8px; }
+
+        /* --- CONTACTO --- */
+        .contact { padding: 80px 10%; background: var(--gray-light); text-align: center; }
+        .contact h2 { font-weight: 200; font-size: 1.8rem; margin-bottom: 40px; }
+        .form-container { width: 100%; }
+        input, textarea { 
+            width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid #ccc; 
+            background: transparent; outline: none; margin-bottom: 25px; font-family: inherit;
+        }
+        button { 
+            width: 100%; padding: 18px; background: var(--text); color: white; 
+            border: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;
+        }
+
+        /* AJUSTE PARA PANTALLAS MUY PEQUEÑAS */
+        @media (max-width: 380px) {
+            .project-title { font-size: 1.8rem; }
+            .logo img { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="Logo.png" alt="Logo">
+    </div>
+    <div class="nav-links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<div id="proyectos" style="margin-top: 100px;">
+    <section class="project" id="camila">
+        <div class="project-media">
+            <video muted loop playsinline poster="rendercamila.png">
+                <source src="videocamila.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="project-content">
+            <span class="project-number">01 / LOFT RESIDENCIAL</span>
+            <h2 class="project-title">CAMILA</h2>
+            <p class="project-desc">Una reinterpretación del loft contemporáneo basada en geometrías orgánicas. El espacio se articula mediante un muro curvo que elimina la rigidez.</p>
+            <div class="materials-box">
+                <h4>Ficha de Materiales</h4>
+                <div class="material-list">
+                    <div class="material-item">Pintura Greige</div>
+                    <div class="material-item">Mobiliario</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project" id="david">
+        <div class="project-media">
+            <video muted loop playsinline poster="renderdavid.png">
+                <source src="videodavid.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="project-content">
+            <span class="project-number">02 / WORKSPACE TÁCTICO</span>
+            <h2 class="project-title">DAVID</h2>
+            <p class="project-desc">Herramienta de precisión diseñada para potenciar la autoridad visual y el enfoque absoluto en el alto rendimiento.</p>
+            <div class="materials-box">
+                <h4>Ficha de Materiales</h4>
+                <div class="material-list">
+                    <div class="material-item">Oxford Blue</div>
+                    <div class="material-item">Madera Heritage</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project" id="layla">
+        <div class="project-media">
+            <video muted loop playsinline poster="renderlayla.png">
+                <source src="videolayla.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="project-content">
+            <span class="project-number">03 / SHALA DE MEDITACIÓN</span>
+            <h2 class="project-title">LAYLA</h2>
+            <p class="project-desc">Ejercicio de precisión tectónica concebido como un refugio de luz rítmica e introspección profunda.</p>
+            <div class="materials-box">
+                <h4>Ficha de Materiales</h4>
+                <div class="material-list">
+                    <div class="material-item">Madera Rústica</div>
+                    <div class="material-item">Piedra Natural</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="contact" id="contacto">
+    <div class="form-container">
+        <h2>Hablemos de su idea</h2>
+        <form action="#" method="POST">
+            <input type="text" placeholder="NOMBRE">
+            <input type="email" placeholder="EMAIL">
+            <textarea placeholder="MENSAJE" rows="3"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Se mantiene la lógica: 5 segundos de imagen, luego video
+    const projects = document.querySelectorAll('.project');
+    const observerOptions = { threshold: 0.4 };
+
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target.querySelector('video');
+            if (entry.isIntersecting) {
+                video.timeoutId = setTimeout(() => {
+                    video.play().catch(e => console.log("Auto-play prevenido hasta interacción"));
+                }, 5000);
+            } else {
+                clearTimeout(video.timeoutId);
+                video.pause();
+                video.currentTime = 0; 
+            }
+        });
+    }, observerOptions);
+
+    projects.forEach(project => projectObserver.observe(project));
+</script>
+
+</body>
+</html>
